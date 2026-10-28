@@ -1,0 +1,3 @@
+import { NextResponse } from 'next/server';import { getPublishedRecords } from '@/lib/server/public-content';
+export const dynamic='force-dynamic';
+export async function GET(){const records=await getPublishedRecords('banners',30);const banners=records.map(r=>({id:r.id,title:String(r.title||r.name||'Informasi LOKAVA'),description:String(r.description||'').slice(0,500),href:typeof r.href==='string'&&r.href.startsWith('/')?r.href:'',photos:Array.isArray(r.photos)?r.photos.filter((p):p is Record<string,unknown>=>!!p&&typeof p==='object'&&typeof(p as {url?:unknown}).url==='string').map(p=>({url:String(p.url)})).slice(0,1):[]}));return NextResponse.json({banners},{headers:{'Cache-Control':'public, max-age=60, stale-while-revalidate=120'}})}
