@@ -1,0 +1,2 @@
+import Link from 'next/link';import { ArrowLeft, Search } from 'lucide-react';
+export default function NotFound(){return <main className="error-page"><div className="error-code">404</div><h1>Halaman tidak ditemukan.</h1><p>Konten mungkin telah dihapus, belum disetujui, atau alamatnya tidak benar.</p><div className="entity-actions"><Link className="button button-dark" href="/"><ArrowLeft size={16}/> Kembali ke beranda</Link><Link className="button button-light" href="/cari"><Search size={16}/> Cari konten</Link></div></main>}
