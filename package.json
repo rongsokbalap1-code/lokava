@@ -23,7 +23,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-leaflet": "^5.0.0",
-    "firebase-admin": "^14.5.0",
+    "firebase-admin": "^13.10.0",
     "cloudinary": "^2.7.0"
   },
   "overrides": {
